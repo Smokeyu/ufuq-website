@@ -84,6 +84,8 @@ const ImplementationPage: React.FC = () => {
     }
   }, [stageVisibility.map(stage => stage.isVisible).join(',')]);
 
+  const CurrentIcon = implementationStages[currentStage].icon;
+
   return (
     <>
       <Section className="pt-32 relative">
@@ -115,9 +117,7 @@ const ImplementationPage: React.FC = () => {
           {/* Animated Icon */}
           <div className="lg:sticky lg:top-24 w-full lg:w-1/2 h-[400px] mb-8 lg:mb-0 flex items-center justify-center">
             <div className="text-[#A6292E] animate-bounce">
-              {implementationStages[currentStage].icon && (
-                <implementationStages[currentStage].icon size={120} />
-              )}
+              <CurrentIcon size={120} />
             </div>
           </div>
 
