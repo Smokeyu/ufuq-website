@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Section from '../components/ui/Section';
 import { Card } from '../components/ui/Card';
-import { Scene } from '../components/3d/Scene';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { 
   SearchIcon, 
@@ -113,12 +112,13 @@ const ImplementationPage: React.FC = () => {
         </div>
         
         <div className="flex flex-col lg:flex-row items-start">
-          {/* 3D Character */}
-          <div className="lg:sticky lg:top-24 w-full lg:w-1/2 h-[400px] mb-8 lg:mb-0">
-            <Scene 
-              currentStage={currentStage} 
-              isVisible={stageVisibility[currentStage]?.isVisible} 
-            />
+          {/* Animated Icon */}
+          <div className="lg:sticky lg:top-24 w-full lg:w-1/2 h-[400px] mb-8 lg:mb-0 flex items-center justify-center">
+            <div className="text-[#A6292E] animate-bounce">
+              {implementationStages[currentStage].icon && (
+                <implementationStages[currentStage].icon size={120} />
+              )}
+            </div>
           </div>
 
           {/* Timeline */}
